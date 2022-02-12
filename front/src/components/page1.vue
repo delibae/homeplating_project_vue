@@ -1,53 +1,52 @@
 <template>
   <div class="container">
-    <div class="item-1 title" id="title">HOMEPLATING</div>
-    <div class="item-2 box">
-      <div class="idt acenter" @click="em">
-        <h class="wf">Email</h>
+    <div class="lmenu">
+      <div class="profile">
+        <div class="photo"></div>
+        <div class="name">Bae Han Jin</div>
       </div>
-      <div class="id acenter">
-        <input
-          class="ibox wf"
-          type="email"
-          v-model="email"
-          placeholder="Email or ID"
-        />
+      <div class="mbox">
+        <div class="icon"></div>
+        <div class="mtext">Home</div>
       </div>
-      <div class="idt acenter">
-        <h class="wf">Password</h>
+      <div class="mbox imsi">
+        <div class="icon imsii"></div>
+        <div class="mtext imsiii">Create Recipe</div>
       </div>
-      <div class="pw acenter">
-        <input
-          class="ibox wf"
-          type="password"
-          v-model="password"
-          placeholder="Password"
-        />
+      <div class="mbox imsi">
+        <div class="icon imsii"></div>
+        <div class="mtext imsiii">Community</div>
       </div>
-      <div class="add">
-        <input
-          type="checkbox"
-          class="cbox pointer"
-          id="remember"
-          v-model="remember"
-        />
-
-        <div class="sstext left pointer" @click="rcheck">Stay Signed In?</div>
-        <div class="find sstext pointer">Forget ID/PW?</div>
+      <div class="mbox imsi">
+        <div class="icon imsii"></div>
+        <div class="mtext imsiii">Management</div>
       </div>
-      <div class="loginbt acenter pointer" @click="login">
-        <h class="loginbtt">LOGIN</h>
+      <div class="border"></div>
+      <div class="mbox imsi">
+        <div class="icon imsii"></div>
+        <div class="mtext imsiii">Main Settings</div>
       </div>
-      <div class="sup acenter">
-        <div class="suptext pointer" @click="signup">Sign up for Free</div>
+      <div class="mbox imsi">
+        <div class="icon imsii"></div>
+        <div class="mtext imsiii">Notification</div>
       </div>
-      <div class="google acenter">
-        <!-- <img src="../assets/gg.svg" class="gimage" />
-        <div class="gtext pointer" @click="google">Sign in with Google</div> -->
+    </div>
+    <div class="rmenu">
+      <div class="top">
+        <div class="toptext">New Recommendations</div>
+        <div class="cardlist">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
       </div>
+      <div class="bottom"></div>
     </div>
   </div>
 </template>
+
 <script src="./page1.js"></script>
 <script>
 import page1 from "./page1.js";
@@ -61,195 +60,264 @@ body {
   /* height: 100%; */
 }
 
+@media (max-width: 1000px) {
+  .cardlist {
+    justify-content: center !important;
+  }
+}
+
 * {
 }
-
-.pointer {
-  cursor: pointer;
-}
-.wf {
-  width: 100%;
-}
-
-.suptext {
-  color: #ffffff;
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
-  font-size: calc(12px + 0.3vw);
-  font-family: Roboto;
-}
-
-.sup {
-  margin-left: 15%;
-  margin-right: 15%;
-  width: 70%;
-  margin-top: 0.3vw;
-  margin-bottom: 0.3vw;
-  background: #f0483e 0% 0% no-repeat padding-box;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 500px;
+  min-height: 150px;
+  display: grid;
+  grid-template-rows: 20px 50px 1fr 50px;
   border-radius: 10px;
-  max-height: 40px;
-  opacity: 1;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
 }
 
-.gimage {
-  width: 1.3vw;
-  height: auto;
-  position: relative;
-  left: 0.7vw;
-  min-width: 25px;
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
 }
 
-.gtext {
+.cardlist {
+  position: static;
   width: 100%;
-  font-weight: bold;
-  font-size: calc(12px + 0.3vw);
-  font-family: Roboto;
-  text-align: center;
-}
+  height: 389px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 
-.google {
-  border: 2px solid #707070;
-  border-radius: 17px;
-  opacity: 1;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 0.3vw;
-  margin-bottom: 0.3vw;
-  max-height: 40px;
-  width: 70%;
-  height: auto;
-  padding: 0.2vw;
-}
-
-.acenter {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.toptext {
+  position: static;
+  width: 640px;
+  height: 144px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 144px;
+  padding-left: 50px;
+  color: rgba(0, 0, 0, 0.54);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.bottom {
+  position: static;
+  width: 100%;
+  height: 543px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  position: static;
+
+  height: 543px;
+  width: 100%;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+.border {
+  border-bottom: 2px solid #e5e5e5;
+  width: 100%;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin-top: 10px;
+}
+.imsiii {
+  color: gray !important;
+}
+.imsii {
+  background: lightgray !important;
+}
+.imsi {
+  background-color: #ffffff !important;
+}
+.mtext {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  height: 14px;
+  width: 100px;
+
+  line-height: 13px;
+  color: #2196f3;
+
+  margin: 2px 10px 2px 10px;
+
+  font-weight: 500;
+  font-size: 14px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  background-color: lightblue;
+  border-radius: 50%;
+  position: static;
+  margin: 2px 25px 2px 10px;
+}
+
+.mbox {
+  position: static;
+  height: 40px;
+  /* Inside auto layout */
+  width: calc(100% - 19px);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  margin: 10px 10px 0px 10px;
+
+  /* Primary / 50 */
+
+  background-color: #e3f2fd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.loginbtt {
-  color: #ffffff;
-  text-align: center;
+.name {
+  position: static;
   width: 100%;
-  font-weight: bold;
-  font-size: calc(12px + 0.3vw);
+  height: 26px;
+
+  /* H6 - med 20 (30px, 0.15px) */
+
   font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+
+  letter-spacing: 0.15px;
+
+  /* Black / High Emphasis */
+
+  color: rgba(0, 0, 0, 0.87);
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 20px 0px;
+}
+.photo {
+  position: static;
+  width: 40px;
+  height: 40px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  /* margin: 20px 0px; */
+
+  border-radius: 50%;
+
+  background-color: navy;
 }
 
-.loginbt {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 0.3vw;
-  margin-bottom: 0.3vw;
-  max-height: 40px;
-  width: 50%;
-  background: #173ba0 0% 0% no-repeat padding-box;
-  border-radius: 10px;
-  opacity: 1;
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0px 0px 20px;
+
+  position: static;
+  width: calc(100% - 20px);
+  height: 120px;
+
+  /* Inside auto layout */
+
+  flex: none;
+
+  border-bottom: 2px solid #e5e5e5;
 }
 
-.grid {
-  display: grid;
-  grid-auto-columns: 1fr 1fr;
+.lmenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  min-width: 255px;
+  max-width: 255px;
+  height: 1086px;
+  background-color: white;
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 1px;
 }
 
-.cbox {
-  width: 1vw;
-  min-width: 10px;
+.rmenu {
+  /* Frame 13 */
 
-  position: relative;
-}
+  /* Auto layout */
 
-.left {
-  text-align: left;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
 
-.find {
-  text-align: right;
-  color: #113fbe;
-}
+  position: static;
+  width: calc(100vw - 255px);
+  min-width: 740px;
+  height: 1086px;
 
-.sstext {
-  font-weight: normal;
-  font-size: calc(12px + 0.2vw);
-  font-family: Roboto;
-}
+  /* Inside auto layout */
 
-.add {
-  display: grid;
-  grid-template-columns: 2.3vw auto auto;
-}
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 1px;
 
-.ibox {
-  width: 100%;
-  height: 2vw;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  font-size: calc(12px + 0.1vw);
-}
-
-.idt {
-  width: 100%;
-  height: 100%;
-  font-weight: bold;
-  font-size: calc(12px + 0.3vw);
-  font-family: Roboto;
-  letter-spacing: 0px;
-  color: #000000;
-  opacity: 1;
-  vertical-align: middle;
-  line-height: 1.61vw;
-}
-
-.box {
-  background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 6px #00000029;
-  border: 1px solid #000000;
-  border-radius: 24px;
-  opacity: 1;
-  padding: 2.5vw;
-}
-
-.title {
-  font-weight: bold;
-  font-size: calc(12px + 1vw);
-  font-family: Roboto;
-  letter-spacing: 0px;
-  color: #000000;
-  opacity: 1;
-  text-align: center;
-  line-height: 6vw;
+  background-color: #fbfcfd;
 }
 
 .container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: relative;
   width: 100vw;
-  height: 100vh;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr auto auto 1fr;
-  column-gap: 1.4vw;
-}
+  height: 1086px;
 
-.item-1 {
-  grid-column-start: 6;
-  grid-column-end: 8;
-  height: 6vw;
-  grid-row: 2;
-  /* background: pink; */
-}
-
-.item-2 {
-  grid-column: 5 / 9;
-  grid-row: 3;
-  height: 25vw;
-  margin-left: 3.5vw;
-  margin-right: 3.5vw;
-  display: grid;
-  grid-template-rows: repeat(8, 1fr);
-  row-gap: 1vw;
-  min-width: 400px;
-  min-height: 500px;
+  background: #fbfcfd;
 }
 </style>
+ 
