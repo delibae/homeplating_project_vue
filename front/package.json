@@ -9,11 +9,14 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "easy-circular-progress": "^1.0.4",
     "firebase": "^9.6.4",
+    "js-circle-progress": "^0.2.2",
     "vue": "^2.6.11",
     "vue-head": "^2.2.0",
     "vue-meta": "^2.4.0",
-    "vue-router": "^3.5.3"
+    "vue-router": "^3.5.3",
+    "vue2-circle-progress": "^1.2.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

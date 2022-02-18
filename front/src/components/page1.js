@@ -1,15 +1,48 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import Progress from "easy-circular-progress";
+
+// var len = document.getElementById("set").clientHeight;
 
 export default {
   name: "page1",
+  components: {
+    Progress,
+  },
   data() {
     return {
       email: "",
       password: "",
       remember: NaN,
+      acircle: 10,
+      circle: 20,
+      battery: [{ stat: 82 }, { stat: 70 }, { stat: 50 }],
+      width: 0,
+      height: 0,
+
     };
   },
+  mounted() {
+    console.log(1);
+    window.addEventListener('resize', this.handleResize);
+    this.acircle = document.getElementById("sett").clientHeight / 2;
+  },
+
+  watch: {
+    width: function () {
+      if (document.getElementById("sett").clientHeight != null) {
+        this.acircle = document.getElementById("sett").clientHeight / 2;
+        console.log("되냐?");
+      }
+    },
+    height: function () {
+      if (document.getElementById("sett").clientHeight != null) {
+        this.acircle = document.getElementById("sett").clientHeight / 2;
+        console.log("되냐?");
+      }
+    },
+  },
+
 
   created() {
     console.log(firebase.auth().currentUser)
@@ -19,10 +52,17 @@ export default {
       } else {
         console.log("왜왜왜")
       }
-    }, 1000)
+    }, 1000);
+
   },
 
+
   methods: {
+    handleResize(event) {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+    },
+
     google() {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth()

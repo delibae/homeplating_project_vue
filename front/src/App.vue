@@ -20,6 +20,7 @@ body {
   overflow-y: hidden;
   overflow: auto;
 }
+
 #app {
   width: 100%;
   height: 1086px;

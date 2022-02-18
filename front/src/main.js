@@ -7,6 +7,8 @@ import router from "./router";
 import VueHead from 'vue-head'
 import firebase from "firebase/compat/app"
 
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyA5EEPn_VoCfDBVWjKlTRD78a7DHw5fRzI",
   authDomain: "homeplating-f2027.firebaseapp.com",
